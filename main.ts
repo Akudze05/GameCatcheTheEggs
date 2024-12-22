@@ -9,10 +9,10 @@ let name: game.LedSprite = null
 name = game.createSprite(2, 4)
 let eggs = game.createSprite(0, 0)
 let pos = 4
-let pauses = 100
+let pauses = 500
 basic.forever(function () {
     pos_eggs = eggs.get(LedSpriteProperty.Y)
-    basic.pause(500)
+    basic.pause(pauses)
     eggs.change(LedSpriteProperty.Y, 1)
     if (eggs.isTouching(name)) {
         game.addScore(1)
@@ -22,4 +22,5 @@ basic.forever(function () {
     if (pos_eggs == 4) {
         game.gameOver()
     }
+    pauses = pauses - 10
 })
